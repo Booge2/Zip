@@ -3,104 +3,104 @@ import gzip
 import os
 
 
-#
-# user_input = input("Введіть список цілих чисел через пробіл: ")
-# numbers = [int(x) for x in user_input.split()]
-#
-# with open("numbers.pkl", "wb") as file:
-#     pickle.dump(numbers, file)
-#
-# new_numbers = []
-# with open("numbers.pkl", "rb") as file:
-#     new_numbers = pickle.load(file)
-#
-# print("Дані з файлу:", new_numbers)
+
+user_input = input("Введіть список цілих чисел через пробіл: ")
+numbers = [int(x) for x in user_input.split()]
+
+with open("numbers.pkl", "wb") as file:
+    pickle.dump(numbers, file)
+
+new_numbers = []
+with open("numbers.pkl", "rb") as file:
+    new_numbers = pickle.load(file)
+
+print("Дані з файлу:", new_numbers)
 # Завдання 2
 
 
-# def load_data():
-#     try:
-#         with open("data.pkl", "rb") as file:
-#             data = pickle.load(file)
-#             print("Дані успішно завантажено.")
-#             return data
-#     except FileNotFoundError:
-#         print("Файл даних не знайдено. Створення нового порожнього списку.")
-#         return []
-#     except Exception as e:
-#         print(f"Помилка завантаження данних: {e}")
-#         return []
-#
-#
-# def save_data(data):
-#     try:
-#         with open("data.pkl", "wb") as file:
-#             pickle.dump(data, file)
-#             print("Данні успішно збережено.")
-#     except Exception as e:
-#         print(f"Помилка збереження данних: {e}")
-#
-#
-# def add_data(data):
-#     new_value = int(input("Введіть число для додавання: "))
-#     data.append(new_value)
-#     print(f"Число {new_value} успішно додано.")
-#
-#
-# def delete_data(data):
-#     if data:
-#         index = int(input("Введіть індекс значення, яке потрібно видалити: "))
-#         if 0 <= index < len(data):
-#             deleted_value = data.pop(index)
-#             print(f"Число {deleted_value} успішно видалено.")
-#         else:
-#             print(f"Недійсний індекс. Будь ласка, введіть число між 0 та {len(data) - 1}.")
-#     else:
-#         print("Список порожній. Нічого видаляти.")
-#
-#
-# def display_data(data):
-#     if data:
-#         print("\n--- Data List ---")
-#         for index, value in enumerate(data):
-#             print(f"{index + 1}. {value}")
-#     else:
-#         print("Список порожній.")
-#
-#
-# def main():
-#     data = load_data()
-#
-#     while True:
-#         print("\n--- Data Management Menu ---")
-#         print("1. Завантажити данні")
-#         print("2. Зберегти данні")
-#         print("3. Додати данні")
-#         print("4. Видалити данні")
-#         print("5. Вивести на екран")
-#         print("6. Exit")
-#
-#         choice = input("Введіть вибір: ")
-#
-#         if choice == "1":
-#             data = load_data()
-#         elif choice == "2":
-#             save_data(data)
-#         elif choice == "3":
-#             add_data(data)
-#         elif choice == "4":
-#             delete_data(data)
-#         elif choice == "5":
-#             display_data(data)
-#         elif choice == "6:":
-#             print("Вихід")
-#             break
-#         else:
-#             print("Неправильний вибір, виберіть між 1 та 6.")
-#
-#
-# if __name__ == "__main__":
-#     main()
+def load_data():
+    try:
+        with open("data.pkl", "rb") as file:
+            data = pickle.load(file)
+            print("Дані успішно завантажено.")
+            return data
+    except FileNotFoundError:
+        print("Файл даних не знайдено. Створення нового порожнього списку.")
+        return []
+    except Exception as e:
+        print(f"Помилка завантаження данних: {e}")
+        return []
+
+
+def save_data(data):
+    try:
+        with open("data.pkl", "wb") as file:
+            pickle.dump(data, file)
+            print("Данні успішно збережено.")
+    except Exception as e:
+        print(f"Помилка збереження данних: {e}")
+
+
+def add_data(data):
+    new_value = int(input("Введіть число для додавання: "))
+    data.append(new_value)
+    print(f"Число {new_value} успішно додано.")
+
+
+def delete_data(data):
+    if data:
+        index = int(input("Введіть індекс значення, яке потрібно видалити: "))
+        if 0 <= index < len(data):
+            deleted_value = data.pop(index)
+            print(f"Число {deleted_value} успішно видалено.")
+        else:
+            print(f"Недійсний індекс. Будь ласка, введіть число між 0 та {len(data) - 1}.")
+    else:
+        print("Список порожній. Нічого видаляти.")
+
+
+def display_data(data):
+    if data:
+        print("\n--- Data List ---")
+        for index, value in enumerate(data):
+            print(f"{index + 1}. {value}")
+    else:
+        print("Список порожній.")
+
+
+def main():
+    data = load_data()
+
+    while True:
+        print("\n--- Data Management Menu ---")
+        print("1. Завантажити данні")
+        print("2. Зберегти данні")
+        print("3. Додати данні")
+        print("4. Видалити данні")
+        print("5. Вивести на екран")
+        print("6. Exit")
+
+        choice = input("Введіть вибір: ")
+
+        if choice == "1":
+            data = load_data()
+        elif choice == "2":
+            save_data(data)
+        elif choice == "3":
+            add_data(data)
+        elif choice == "4":
+            delete_data(data)
+        elif choice == "5":
+            display_data(data)
+        elif choice == "6:":
+            print("Вихід")
+            break
+        else:
+            print("Неправильний вибір, виберіть між 1 та 6.")
+
+
+if __name__ == "__main__":
+    main()
 # Завдання 3
 
 def add_user(users, login, password):
